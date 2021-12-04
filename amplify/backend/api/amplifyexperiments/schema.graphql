@@ -1,0 +1,27 @@
+enum OrderStatus {
+  CREATED
+  VALIDATED
+  PAID
+  SHIPPED
+}
+
+type OrderLine @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  orderID: ID @index(name: "byOrder")
+  Product: Product @hasOne
+  quantity: Int
+  price: Int
+}
+
+type Order @model @auth(rules: [{allow: owner}]) {
+  id: ID!
+  OrderLines: [OrderLine] @hasMany(indexName: "byOrder", fields: ["id"])
+  status: OrderStatus
+}
+
+type Product @model @auth(rules: [{allow: public, operations: [read]}, {allow: groups, groups: ["employee"], operations: [read, create, update, delete]}]) {
+  id: ID!
+  name: String
+  price: Int
+}
+ 
