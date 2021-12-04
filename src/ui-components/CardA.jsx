@@ -48,15 +48,16 @@ export default function CardA(props) {
           shrink="0"
           display="flex"
           letterSpacing="0.010000000000000009px"
+          label={name}
           justifyContent="flex-start"
           fontFamily="Inter"
+          children={name}
           width="320px"
           fontSize="16px"
           lineHeight="24px"
           position="relative"
           fontWeight="400"
           direction="column"
-          children="Classic Long Sleeve T-Shirt"
           {...getOverrideProps(overrides, "Flex.Flex[0].Text[0]")}
         ></Text>
         <Text
@@ -66,15 +67,16 @@ export default function CardA(props) {
           textAlign="left"
           shrink="0"
           display="flex"
+          label={price}
           justifyContent="flex-start"
           fontFamily="Inter"
+          children={price}
           width="320px"
           fontSize="14px"
           lineHeight="24px"
           position="relative"
           fontWeight="400"
           direction="column"
-          children="$99"
           {...getOverrideProps(overrides, "Flex.Flex[0].Text[1]")}
         ></Text>
       </Flex>
